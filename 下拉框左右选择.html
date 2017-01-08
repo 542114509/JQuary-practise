@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        select{
+            width: 100px;
+            height: 160px;
+        }
+        div{
+            float: left;
+            width: 150px;
+            height: 200px;
+        }
+        span{
+            width: 120px;
+            height: 30px;
+            background: #bbbbbb;
+            text-align: center;
+            line-height: 30px;
+            font-size: 12px;
+            float: left;
+            cursor: pointer;
+            margin: 2px;
+        }
+    </style>
+    <script src="jquery-1.12.4.js"></script>
+</head>
+<body>
+    <div id="1">
+        <select name="" id="select1" multiple="multiple">
+            <option value="1">选项1</option>
+            <option value="2">选项2</option>
+            <option value="3">选项3</option>
+            <option value="4">选项4</option>
+            <option value="5">选项5</option>
+            <option value="6">选项6</option>
+            <option value="7">选项7</option>
+        </select>
+        <span id="addtoright">
+            选中添加到右面 >>
+        </span>
+        <span id="addallright">
+            全部添加到右面 >>
+        </span>
+    </div>
+    <div id="2">
+        <select name="" id="select2" multiple="multiple">
+            <option value="8">选项8</option>
+        </select>
+         <span id="addtoleft">
+             << 选中添加到左面
+        </span>
+        <span id="addallleft">
+            << 全部添加到左面
+        </span>
+    </div>
+    <script>
+        $(function(){
+            $('#addtoright').click(function(){
+                $('#select1 option:selected').appendTo('#select2')
+            });
+            $('#addallright').click(function(){
+                $('#select1 option').appendTo('#select2')
+            });
+            $('#addtoleft').click(function(){
+                $('#select2 option:selected').appendTo('#select1')
+            });
+            $('#addallleft').click(function(){
+                $('#select2 option').appendTo('#select1')
+            });
+            $('#select1 option').dblclick(function(){
+                $('option:selected').appendTo('#select2')
+            });
+            $('#select2 option').dblclick(function(){
+                $('option:selected').appendTo('#select1')
+            })
+
+
+
+
+
+
+        })
+    </script>
+</body>
+</html>
